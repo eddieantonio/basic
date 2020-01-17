@@ -1,0 +1,13 @@
+#!/bin/zsh
+
+# Start a "basic environment"
+# This is for demoing intro to git, and other things.
+
+# ZSH dot files are in THIS directory!
+SCRIPTDIR="$(dirname $(realpath ${BASH_SOURCE:-$0}))"
+export BASIC_HOME="$SCRIPTDIR"
+
+cp -f ~/.gitconfig ~/gitconfig.bak
+mv -f ~/.gitconfig /tmp
+ZDOTDIR="$BASIC_HOME" zsh -i
+cp -f ~/gitconfig.bak ~/.gitconfig
